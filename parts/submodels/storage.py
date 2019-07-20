@@ -9,6 +9,7 @@ class Storage(models.Model):
         ('USB', "USB"),
     )
     name = models.CharField(max_length=64)
+    part_number = models.CharField(max_length=18)
     capacity = models.IntegerField()
     cache = models.IntegerField()
     interface = models.CharField(max_length=16, choices=INTERFACE_TYPES) # enum
@@ -16,9 +17,9 @@ class Storage(models.Model):
 
     def __str__(self):
         if self.capacity > 1023:
-            return "{} {} TB".format(self.name, self.capacity)
+            return "{} {} TB".format(self.name, self.capacity/1024)
         else:
-            return "{} {} GB".format(self.name, self.capacity/1024)
+            return "{} {} GB".format(self.name, self.capacity)
         
 
     @property
