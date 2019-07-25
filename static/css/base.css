@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;   
+}
+
+body{
+    background-color: rgba(191, 180, 241, 0.4)
+}
+@media (min-width: 1200px){
+    .container {
+        max-width: 1400px;
+    }
+}
+
+.container {
+    margin-top: 30px;
+}
+
+.part-main-section, .part-filter-section{
+    margin: 15px 0px; 
+    border: 2px solid #7777;
+    border-radius: 5px;
+    height: 80vh;
+    padding: 10px 20px;
+    background-color: rgba(170, 170, 170, 0.342)
+}

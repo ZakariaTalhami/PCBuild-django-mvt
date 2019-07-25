@@ -1,0 +1,20 @@
+{% extends "../base_part.html" %}
+{% load render_table from django_tables2 %}
+{% block partGrid %}
+<!-- <h1>CPU list:</h1>
+<ul>
+{% for cpu in cpu_list %}
+    <li><a href="{% url 'parts-cpu-detail' pk=cpu.id %}">{{ cpu }}</a></li>
+{% empty %}
+    <p>No cpus are available.</p>
+{% endfor %}
+</ul> -->
+<!-- <table class="table">
+    <thead>
+        <tr>
+            
+        </tr>
+    </thead>
+</table> -->
+{% render_table table %}
+{% endblock partGrid %}

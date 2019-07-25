@@ -1,0 +1,20 @@
+{% extends "../base.html" %}
+{% block container %}
+    <div class="row">
+        <div class="col-md-3">
+            <div class="col-md-12 part-filter-section">
+                {% block partFilters %}
+                    this is the filters
+                {% endblock partFilters %}
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <div class="col-md-12 part-main-section">
+                {% block partGrid %}
+                    this is the grid area
+                {% endblock partGrid %}
+            </div>
+        </div>
+    </div>  
+{% endblock container %}
