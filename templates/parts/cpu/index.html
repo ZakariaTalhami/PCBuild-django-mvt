@@ -1,20 +1,43 @@
 {% extends "../base_part.html" %}
+
 {% load render_table from django_tables2 %}
+{% load static %}
+
+{% block extraStyles %}
+  <link rel="stylesheet" href="{% static 'css/parts/part_grid.css' %}">
+{% endblock extraStyles %}
+
+{% block partFilters %}
+    <div class="parts-filters-container">
+        <div class="parts-list-title">
+            Filters
+        </div>
+
+        <div class="parts-filters">
+            {% for key, filter in  filters.items %}
+                <div class="filter-section-header">
+                    {{ key|capfirst }}
+                </div>
+                <div class="filter-section-body">
+                    {% for value in filter %}
+                    
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="value" id="{{ key }}-{{ value }}">
+                            <label class="form-check-label" for="{{ key }}-{{ value }}">{{ value }}</label>
+                        </div>
+                    {% endfor %}
+                </div>
+                <hr>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock partFilters %}
+
 {% block partGrid %}
-<!-- <h1>CPU list:</h1>
-<ul>
-{% for cpu in cpu_list %}
-    <li><a href="{% url 'parts-cpu-detail' pk=cpu.id %}">{{ cpu }}</a></li>
-{% empty %}
-    <p>No cpus are available.</p>
-{% endfor %}
-</ul> -->
-<!-- <table class="table">
-    <thead>
-        <tr>
-            
-        </tr>
-    </thead>
-</table> -->
-{% render_table table %}
+    <div class="parts-grid-container">
+        <div class="parts-list-title">
+            Parts
+        </div>
+        {% render_table table %}
+    </div>
 {% endblock partGrid %}

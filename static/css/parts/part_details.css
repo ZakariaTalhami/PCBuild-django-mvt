@@ -1,0 +1,29 @@
+.parts-spec-container {
+    padding: 15px;
+}
+
+.parts-specs {
+    margin-left: 5%;
+}
+
+.spec-section-header {
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-bottom: 1px solid #0005;
+    margin-bottom: 5px;
+}
+
+.spec-section-body {
+    margin-left: 5%;
+    font-size: 14px;
+    padding: 10px 0;
+}
+
+.parts-spec-title {
+    border-bottom: 2px black solid;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+}

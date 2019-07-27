@@ -1,12 +1,35 @@
 {% extends "../base_part.html" %}
+{% load static %}
+
+{% block extraStyles %}
+  <link rel="stylesheet" href="{% static 'css/parts/part_details.css' %}">
+{% endblock extraStyles %}
+
+{% block partFilters %}
+    <div class="parts-spec-container">
+        <div class="parts-spec-title">
+            Spec
+        </div>
+        <div class="parts-specs">
+            {% for key,spec in part.items %}
+                <div class="spec-section-header">
+                    {{ key|capfirst }}
+                </div>
+                <div class="spec-section-body">
+                    {{ spec }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock partFilters %}
+
 {% block partGrid %}
     <h1>CPU Details:</h1>
-    {% if cpu_part %}
-        <h4>{{ cpu_part.model_name }} spec: </h4>
-
+    {% if part %}
+        <h4>{{ title }} spec: </h4>
         <div class="col-md-8 offset-md-2">
             <ul class="list-group" >
-                {% for key, value in cpu_part.items %}
+                {% for key, value in part.items %}
                     <li class="list-group-item">
                             <div class="row">
                                 <span class="col-md-3 text-right">{{ key }}:</span> 
@@ -14,35 +37,6 @@
                             </div>
                     </li>
                 {% endfor %}
-                <!-- <li class="list-group-item">
-                        <div class="row">
-                            <span class="col-md-3 text-right">manufacturer:</span> 
-                            <span class="col-md-5 offset-md-2">{{ cpu_part.manufacturer }}</span>
-                        </div>
-                </li>
-                <li class="list-group-item">
-                        <div class="row">
-                            <span class="col-md-3 text-right">series:</span> 
-                            <span class="col-md-5 offset-md-2">{{ cpu_part.series }}</span>
-                        </div>
-                </li>
-                <li class="list-group-item">
-                        <div class="row">
-                            <span class="col-md-3 text-right">model_name:</span> 
-                            <span class="col-md-5 offset-md-2">{{ cpu_part.model_name }}</span>
-                        </div>
-                </li>
-                <li class="list-group-item">part_number: {{ cpu_part.part_number }}
-                        <div class="row">
-                            <span class="col-md-3 text-right">series:</span> 
-                            <span class="col-md-5 offset-md-2">{{ cpu_part.series }}</span>
-                        </div>
-                </li>
-                <li class="list-group-item">family: {{ cpu_part.family }}</li>
-                <li class="list-group-item">cores: {{ cpu_part.cores }}</li>
-                <li class="list-group-item">threads: {{ cpu_part.threads }}</li>
-                <li class="list-group-item">base_clock: {{ cpu_part.base_clock }}</li>
-                <li class="list-group-item">boost_clock: {{ cpu_part.boost_clock }}</li> -->
             </ul>
         </div>
     {% else %}

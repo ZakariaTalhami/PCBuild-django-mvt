@@ -1,0 +1,57 @@
+.parts-grid-container {
+    padding: 15px;
+}
+
+table.part-grid{
+    font-size: 14px;
+}
+
+table.part-grid th, table.part-grid td{
+    color: rgba(37, 37, 37, 0.75);
+    padding: 0.5rem;
+    border-color: rgba(47, 47, 215, 0.75);
+}
+table.part-grid th a{
+    color: rgba(37, 37, 37, 0.75);
+}
+
+table.part-grid td a:hover {
+    text-decoration: none;
+}
+
+table.part-grid thead {
+    box-shadow: inset 0px -5px 5px -4px rgba(47, 47, 215, 0.5);
+}
+
+table.part-grid thead th{
+    border-color: rgba(47, 47, 215, 0.65);
+}
+
+.parts-list-title {
+    border-bottom: 2px black solid;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+}
+
+.parts-filters-container {
+    padding: 15px;
+}
+
+.parts-filters {
+    margin-left: 5%;
+}
+
+.filter-section-header {
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-bottom: 1px solid #0005;
+    margin-bottom: 5px;
+}
+
+.filter-section-body {
+    margin-left: 5%;
+    font-size: 14px;
+}
