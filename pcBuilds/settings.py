@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'builds',
     'parts',
     'users',
+    'reviews',
 ]
 
 MIDDLEWARE = [

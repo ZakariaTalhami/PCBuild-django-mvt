@@ -27,17 +27,38 @@
     <h1>CPU Details:</h1>
     {% if part %}
         <h4>{{ title }} spec: </h4>
-        <div class="col-md-8 offset-md-2">
-            <ul class="list-group" >
-                {% for key, value in part.items %}
-                    <li class="list-group-item">
-                            <div class="row">
-                                <span class="col-md-3 text-right">{{ key }}:</span> 
-                                <span class="col-md-5 offset-md-2">{{ value }}</span>
+        <div class="row">
+            <div class="part-image-area col-md-4 text-center">
+                <img src="https://via.placeholder.com/250" alt="" srcset="" class="">
+            </div>
+            <div class="col-md-8">
+                <div class="review-title">Reviews :</div>
+                <div class="comment-section">
+                    {% for comment in comments %}
+                        <div class="comment">
+                            <div class="comment-header row">
+                                <div class="col-md-2 text-center">
+                                    <img src="https://via.placeholder.com/50" alt="" srcset="">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="comment-owner-name">
+                                        {{comment.owner.username|capfirst}}
+                                    </div>
+                                    <div class="comment-timestamp">
+                                        {{comment.timestamp}}
+                                    </div>
+                                </div>
                             </div>
-                    </li>
-                {% endfor %}
-            </ul>
+                            <div class="comment-body row">
+                                <div class="offset-md-2">
+                                    {{ comment.text }}
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
     {% else %}
         <p>Cpu cant be found.</p>

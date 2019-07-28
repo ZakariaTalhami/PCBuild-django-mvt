@@ -19,10 +19,11 @@ class PartDetailView(DetailView):
         if self.object:
             context['title'] = str(self.object)
             fields = self.model._meta.get_fields()
-            context['part'] = {field.verbose_name:getattr(self.object, field.name) for field in fields if field.concrete}
+            context['part'] = {field.verbose_name:getattr(self.object, field.name) for field in fields if field.concrete and not field.one_to_one}
             context_object_name = self.get_context_object_name(self.object)
             if context_object_name:
                 context[context_object_name] = context['part']
+            context['comments'] = self.object.comment_set.all()
         context.update(kwargs)
         return context
             
@@ -41,7 +42,7 @@ class PartListView(SingleTableView):
         values = self.object_list.values()
         filter_values = {}
         for field in fields:
-            if field.name != 'id' and field.concrete:
+            if field.name != 'id' and field.concrete and not field.one_to_one:
                 filter_values[field.verbose_name] = set([ part[field.name] for part in values])
         return filter_values
 

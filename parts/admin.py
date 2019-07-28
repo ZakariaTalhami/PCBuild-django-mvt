@@ -1,11 +1,8 @@
 from django.contrib import admin
-from .models import Cpu
-from .models import Memory
-from .models import Mobo
-from .models import Storage
-from .models import Videocard
+from .models import Part, Cpu, Memory, Mobo, Storage, Videocard
 
 models = [
+    Part,
     Cpu, 
     Memory, 
     Mobo, 

@@ -1,6 +1,7 @@
 from django.db import models
+from .part import Part
 
-class Mobo(models.Model):
+class Mobo(Part):
     SOCKET_TYPES = (
         ('AM3+', 'AM3+'),
         ('AM4', 'AM4'),
@@ -28,23 +29,20 @@ class Mobo(models.Model):
         ('Z270','Intel Z270'),
         ('Z370','Intel Z370'),
     )
-    manufactuer = models.CharField(max_length=64)
     socket = models.CharField(max_length=16, choices=SOCKET_TYPES) 
     chipset = models.CharField(max_length=16, choices=CHIPSET_TYPES)
-    part_number = models.CharField(max_length=18)
     form_factor = models.CharField(max_length=8, choices=FORM_FACTORS)
     ram_slots = models.IntegerField()
     max_ram = models.IntegerField()
     sata = models.IntegerField()
     m2 = models.IntegerField()
     pcie = models.IntegerField()
-    price = models.FloatField()
 
     class Meta:
         ordering = ['chipset']
 
     def __str__(self):
-        return "{} - {} {} {} Motherboard".format(self.manufactuer, self.chipset, self.form_factor, self.socket)
+        return "{} - {} {} {} Motherboard".format(self.manufacturer, self.chipset, self.form_factor, self.socket)
 
     @property
     def is_amd_board(self):

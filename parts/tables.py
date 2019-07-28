@@ -9,6 +9,7 @@ class PartMeta:
     """
     attrs = {'class': 'table part-grid table-hover'}
     template_name='django_tables2/bootstrap-responsive.html'
+    exclude = ('part_ptr',)
 
 class CpuTable(tables.Table):
     id = tables.LinkColumn('parts-cpu-detail', args=[A('pk')])

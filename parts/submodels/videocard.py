@@ -1,17 +1,14 @@
 from django.db import models
+from .part import Part
 
-class Videocard(models.Model):
-    manufacturer = models.CharField(max_length=64)
+class Videocard(Part):
     chipset = models.CharField(max_length=64)
-    model_name = models.CharField(max_length=64)
-    part_number = models.CharField(max_length=18)
-    memory = models.IntegerField()
+    vram = models.IntegerField(verbose_name='Memory')
     base_clock = models.IntegerField()
     boost_clock = models.IntegerField()
-    price = models.FloatField()
 
-    class meta:
+    class Meta:
         ordering = ['model_name']
 
     def __str__(self):
-        return "{} - {} {}GB {}".format(self.manufacturer, self.chipset, self.memory, self.model_name)
+        return "{} - {} {}GB {}".format(self.manufacturer, self.chipset, self.vram, self.model_name)

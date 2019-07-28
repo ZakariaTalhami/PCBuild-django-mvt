@@ -1,9 +1,25 @@
+:root {
+    --primary-color: rgb(89, 122, 230);
+    --secondary-color: #95aeff;
+    --reverse-color: rgb(222, 225, 255);
+}
+
 * {
     box-sizing: border-box;   
 }
 
 body{
-    background-color: rgba(180, 185, 241, 0.4)
+    /* background-color: rgba(89, 122, 230, 0.4) */
+}
+
+.navbar {
+    /* background-color: rgb(48, 65, 122); */
+    background-color: rgb(89, 122, 230);
+    box-shadow: 0 0 0 0 rgb(0,0,0,1);
+}
+
+.navbar-brand img{
+    margin-right: 20px;
 }
 
 .custom-container {

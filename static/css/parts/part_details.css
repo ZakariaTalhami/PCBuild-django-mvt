@@ -19,11 +19,34 @@
     padding: 10px 0;
 }
 
-.parts-spec-title {
+.parts-spec-title, .review-title {
     border-bottom: 2px black solid;
     margin-bottom: 20px;
     padding: 10px;
     font-size: 1.5rem;
     font-weight: bold;
     letter-spacing: 0.1rem;
+}
+
+.comment-owner-name {
+    font-weight: bold;   
+}
+
+.comment-timestamp {
+    padding-left: 30px; 
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
+
+.comment-body {
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.comment-header img {
+    margin: auto;
+}
+
+.part-image-area img {
+    margin-top: 20px;   
 }
