@@ -50,3 +50,12 @@
 .part-image-area img {
     margin-top: 20px;   
 }
+
+.comment-footer {
+    position: relative;
+    margin: 0;
+    top: -3px;
+    padding: 0;
+    font-size: 0.7rem;
+    float: right;
+}

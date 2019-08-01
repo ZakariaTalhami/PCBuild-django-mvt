@@ -23,12 +23,12 @@ class PartDetailView(DetailView):
             context_object_name = self.get_context_object_name(self.object)
             if context_object_name:
                 context[context_object_name] = context['part']
-            context['comments'] = self.object.comment_set.all()
+            #  Should move this ordering to the model itself
+            context['comments'] = self.object.comment_set.order_by('-timestamp')
         context.update(kwargs)
         return context
             
 class PartListView(SingleTableView):
-
     """ 
         create as view that generates the filter option of a model and addes them
         to the context

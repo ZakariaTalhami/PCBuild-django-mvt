@@ -1,0 +1,33 @@
+{% extends '../base.html' %}
+{% load static %}
+{% load dictvalue %}
+{% load formfilters %}
+
+{% block extraStyles %}
+      <link rel="stylesheet" href="{% static 'css\registration\login.css' %}">
+{% endblock extraStyles %}
+
+{% block container %}
+  <div class="login-container">
+    <h2>Sign up</h2>
+    <form method="post">
+      {% csrf_token %}
+      {% for key,field in form.fields.items %}
+        <div class="form-group">
+          <label for="{{ key }}">{{ field.label }}</label>
+          <input type="{{ field.widget.input_type }}"
+                class="form-control" 
+                id="{{ key }}" 
+                name="{{ key }}"
+                value="{% if form.data %}{{ form.data|dictvalue:key}}{% endif %}">
+          {% if form.errors|dictvalue:key %}
+            <div class="input-error-messages">
+              {{ form.errors|dictvalue:key }}
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+      <button type="submit" class="btn btn-primary">Sign Up</button>
+    </form>
+  </div>
+{% endblock container %}

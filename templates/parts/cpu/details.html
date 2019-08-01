@@ -1,5 +1,7 @@
 {% extends "../base_part.html" %}
 {% load static %}
+{% load upTo %}
+{% load commentFilters %}
 
 {% block extraStyles %}
   <link rel="stylesheet" href="{% static 'css/parts/part_details.css' %}">
@@ -29,7 +31,7 @@
         <h4>{{ title }} spec: </h4>
         <div class="row">
             <div class="part-image-area col-md-4 text-center">
-                <img src="https://via.placeholder.com/250" alt="" srcset="" class="">
+                <img src="https://via.placeholder.com/250" alt="" srcset="" class="" style="width:100%; max-width: 250px;">
             </div>
             <div class="col-md-8">
                 <div class="review-title">Reviews :</div>
@@ -38,14 +40,16 @@
                         <div class="comment">
                             <div class="comment-header row">
                                 <div class="col-md-2 text-center">
-                                    <img src="https://via.placeholder.com/50" alt="" srcset="">
+                                    <a href="#" class="user-avatar">
+                                        <img src="https://via.placeholder.com/50" alt="" srcset="">
+                                    </a>
                                 </div>
                                 <div class="col-md-8">
                                     <div class="comment-owner-name">
-                                        {{comment.owner.username|capfirst}}
+                                        <a href="#" class="username-link">{{comment.owner.username|capfirst}}</a>                                        
                                     </div>
                                     <div class="comment-timestamp">
-                                        {{comment.timestamp}}
+                                        {{comment.timestamp|timesince|upto:','}} ago
                                     </div>
                                 </div>
                             </div>
@@ -54,9 +58,23 @@
                                     {{ comment.text }}
                                 </div>
                             </div>
+                            <div class="comment-footer row">
+                                <a href="#">Report</a>
+                            </div>
+                            <hr>
                         </div>
-                        <hr>
                     {% endfor %}
+                    {% if user.is_authenticated and not comments|iscommented:user.id %}
+                        <form action="{% url 'comment-create' %}" method="post">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <input class="form-control"  type="hidden" name="part" value="{{ part.ID }}">
+                                <input class="form-control"  type="hidden" name="owner" value="2">
+                                <textarea class="form-control"  name="text" id="" cols="30" rows="10"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Post</button>
+                        </form>
+                    {% endif %}
                 </div>
             </div>
         </div>

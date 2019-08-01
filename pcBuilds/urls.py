@@ -21,5 +21,8 @@ urlpatterns = [
     path('', views.home, name="home"),
     path('parts/', include('parts.urls'), name="parts"),
     path('builds/', include('builds.urls')),
+    path('reviews/', include('reviews.urls')),
+    path('user/', include('users.urls')),
+    path('user/', include('django.contrib.auth.urls'), {'redirect_authenticated_user': True}),
     path('admin/', admin.site.urls),
 ]

@@ -26,6 +26,25 @@
                     <a href="{% url 'parts-videocard-list' %}" class="dropdown-item">Videocard</a>
                 </div>
             </li>
+            {% if not user.is_authenticated  %}
+                <li class="nav-item">
+                    <a href="{% url 'login' %}" class="nav-link">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'signup' %}" class="nav-link">Sign Up</a>
+                </li>
+            {% else %}
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown">
+                        <img src="https://via.placeholder.com/30" alt="" srcset="">
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a href="" class="dropdown-item">Profile</a>
+                        <a href="" class="dropdown-item">My Builds</a>
+                        <a href="{% url 'logout' %}" class="dropdown-item">Logout</a>
+                    </div>
+                </li>
+            {% endif %}
         </ul>
     </div>
 </div>
