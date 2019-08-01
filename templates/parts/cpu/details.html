@@ -69,8 +69,8 @@
                             {% csrf_token %}
                             <div class="form-group">
                                 <input class="form-control"  type="hidden" name="part" value="{{ part.ID }}">
-                                <input class="form-control"  type="hidden" name="owner" value="2">
-                                <textarea class="form-control"  name="text" id="" cols="30" rows="10"></textarea>
+                                <input class="form-control"  type="hidden" name="owner" value="{{ user.id }}">
+                                <textarea class="form-control"  name="text" id="" cols="30" rows="5"></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary">Post</button>
                         </form>
