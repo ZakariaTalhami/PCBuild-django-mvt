@@ -10,11 +10,3 @@ def get_global_error(value: dict):
     field
     """
     return value.get('__all__', False);
-
-
-@register.filter(is_safe=False)
-def get_items(value: dict):
-    """
-    Retrieve the Key and value of a dictionary
-    """
-    return value.items()

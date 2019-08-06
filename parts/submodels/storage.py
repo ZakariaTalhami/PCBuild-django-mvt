@@ -19,7 +19,7 @@ class Storage(Part):
         else:
             return "{} {} GB".format(self.model_name, self.capacity)
         
-
+        
     @property
     def price_per_gb(self):
         """ Storage price per gb """

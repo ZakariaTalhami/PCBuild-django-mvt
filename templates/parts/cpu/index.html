@@ -8,36 +8,59 @@
 {% endblock extraStyles %}
 
 {% block partFilters %}
-    <div class="parts-filters-container">
-        <div class="parts-list-title">
-            Filters
-        </div>
+    {% if table.data %}
+        <div class="parts-filters-container">
+            <div class="parts-list-title">
+                Filters
+            </div>
 
-        <div class="parts-filters">
-            {% for key, filter in  filters.items %}
-                <div class="filter-section-header">
-                    {{ key|capfirst }}
-                </div>
-                <div class="filter-section-body">
-                    {% for value in filter %}
-                    
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="value" id="{{ key }}-{{ value }}">
-                            <label class="form-check-label" for="{{ key }}-{{ value }}">{{ value }}</label>
-                        </div>
-                    {% endfor %}
-                </div>
-                <hr>
-            {% endfor %}
+            <div class="parts-filters">
+                {% for key, filter in  filters.items %}
+                    <div class="filter-section-header">
+                        {{ key|capfirst }}
+                    </div>
+                    <div class="filter-section-body">
+                        {% for value in filter %}
+                        
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="value" id="{{ key }}-{{ value }}">
+                                <label class="form-check-label" for="{{ key }}-{{ value }}">{{ value }}</label>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <hr>
+                {% endfor %}
+            </div>
         </div>
-    </div>
+    {% else %}
+        <div>
+            <div class="filters-empty-header">
+                No Filters for {{ table.data.verbose_name_plural }}
+            </div>
+            <div class="filters-empty-icon">
+                <img src="{% static 'images/icons/no-funneling.png' %}" alt="">
+            </div>
+        </div>
+    {% endif %}
+    
 {% endblock partFilters %}
 
 {% block partGrid %}
-    <div class="parts-grid-container">
-        <div class="parts-list-title">
-            Parts
+    {% if table.data %}
+        <div class="parts-grid-container">
+            <div class="parts-list-title">
+                Parts
+            </div>
+            {% render_table table %}
         </div>
-        {% render_table table %}
-    </div>
+    {% else %}
+        <div>
+            <div class="parts-empty-header">
+                There arent any {{ table.data.verbose_name_plural }}
+            </div>
+            <div class="parts-empty-icon">
+                <img src="{% static 'images/icons/empty-set.png' %}" alt="">
+            </div>
+        </div>
+    {% endif %}
 {% endblock partGrid %}

@@ -1,0 +1,60 @@
+[
+    {
+        "class": "parts.models.Memory",
+        "data": [
+            {
+                "manufacturer" : "Corsair",
+                "model_name": "Vengeance",
+                "part_number": "CMK16GX4M2B3000C15",
+                "price": 80,
+                "speed" : "DDR4-3000",
+                "frequency" : "3000",
+                "memory_type" : "288-pin DIMM",
+                "isdual" : true,
+                "ram" : 16,
+                "cas_latency" : 15,
+                "isecc" : false
+            },
+            {
+                "manufacturer" : "G.Skill",
+                "model_name": "Trident Z RGB",
+                "part_number": "F4-3200C16D-16GTZR",
+                "price": 104,
+                "speed" : "DDR4-3200",
+                "frequency" : "320",
+                "memory_type" : "288-pin DIMM",
+                "isdual" : true,
+                "ram" : 16,
+                "cas_latency" : 15,
+                "isecc" : false
+            }
+        ]
+    },
+    {
+        "class": "users.models.CustomUser",
+        "data": [
+            {
+                "username": "Username", 
+                "password": "Password54", 
+                "bio": "some text" 
+            }
+        ]
+    },
+    {
+        "class": "reviews.models.Comment",
+        "data": [
+            {
+                "part": {
+                    "class": "parts.models.Memory",
+                    "pk": 1
+                }, 
+                "owner": {
+                    "class": "users.models.CustomUser",
+                    "pk": 1
+                }, 
+                "text": "some Comment" 
+            }
+        ]
+    }
+    
+]

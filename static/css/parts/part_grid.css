@@ -55,3 +55,47 @@ table.part-grid thead th{
     margin-left: 5%;
     font-size: 14px;
 }
+
+.parts-empty-header {
+    text-align: center;
+    margin-top: 50px;
+    font-weight: 500;
+    font-size: 2rem;
+}
+
+.parts-empty-icon {
+    text-align: center;
+}
+.parts-empty-icon img{
+    margin-top: 75px;
+    color: #597ae6;
+    filter: invert(43%) 
+            sepia(71%) 
+            saturate(2228%) 
+            hue-rotate(210deg) 
+            brightness(96%) 
+            contrast(87%);
+    width: 10%;
+}
+
+.filters-empty-header {
+    text-align: center;
+    margin-top: 55px;
+    font-weight: 500;
+    font-size: 1.6rem;
+}
+
+.filters-empty-icon {
+    text-align: center;
+}
+.filters-empty-icon img{
+    margin-top: 100px;
+    color: #597ae6;
+    filter: invert(43%) 
+            sepia(71%) 
+            saturate(2228%) 
+            hue-rotate(210deg) 
+            brightness(96%) 
+            contrast(87%);
+    width: 20%;
+}
